@@ -17,35 +17,32 @@ const Event = (props) => {
             <div className="mt-3">
                 <h1 className="text-center">Добре дошли в страницата за събития.</h1>
                 <Button className="float-md-right mr-5 mb-3 w-25" variant="outline-primary">Добавете събитие</Button>
-                <Table className="mt-5" striped bordered hover size="sm">
-                    <thead>
-                    <tr>
-                        <th className="text-center">Добавил</th>
-                        <th>Дата</th>
-                        <th>Събитие</th>
-                        <th>Съобщение</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>message</td>
-                    </tr>
-                    <tr>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                        <td>message</td>
-                    </tr>
-                    <tr>
-                        <td colSpan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                        <td>message</td>
-                    </tr>
-                    </tbody>
-                </Table>
+                <div>
+                    <Table className="mt-5" striped bordered hover size="sm">
+                        <thead>
+                        <tr>
+                            <th className="text-center">Име</th>
+                            <th className="text-center">Дата</th>
+                            <th className="text-center">Събитие</th>
+                            <th className="text-center">Съобщение</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {
+                            props.eventList.map((record, index) => {
+                                return (
+                                    <tr key={index}>
+                                        <td className="text-center w-25">{record.personName}</td>
+                                        <td className="text-center">{record.date.toString().slice(0,10)}</td>
+                                        <td className="text-center">{record.eventName}</td>
+                                        <td className="w-50">{record.message}</td>
+                                    </tr>
+                                )
+                            })
+                        }
+                        </tbody>
+                    </Table>
+                </div>
             </div>
         </Fragment>
     )
