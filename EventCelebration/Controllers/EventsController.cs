@@ -16,7 +16,7 @@
 
         public EventsController()
         {
-           events = JsonConvert.DeserializeObject<List<Event>>(System.IO.File.ReadAllText(eventsJSONPath));
+            events = JsonConvert.DeserializeObject<List<Event>>(System.IO.File.ReadAllText(eventsJSONPath));
 
         }
 

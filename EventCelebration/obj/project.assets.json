@@ -562,19 +562,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Smart\\.nuget\\packages\\": {}
+    "C:\\Users\\hrist_5hbdfer\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Git\\EventCelebration\\EventCelebration\\EventCelebration.csproj",
+      "projectUniqueName": "C:\\Users\\hrist_5hbdfer\\OneDrive\\Desktop\\work\\EventCelebration\\EventCelebration.csproj",
       "projectName": "EventCelebration",
-      "projectPath": "D:\\Git\\EventCelebration\\EventCelebration\\EventCelebration.csproj",
-      "packagesPath": "C:\\Users\\Smart\\.nuget\\packages\\",
-      "outputPath": "D:\\Git\\EventCelebration\\EventCelebration\\obj\\",
+      "projectPath": "C:\\Users\\hrist_5hbdfer\\OneDrive\\Desktop\\work\\EventCelebration\\EventCelebration.csproj",
+      "packagesPath": "C:\\Users\\hrist_5hbdfer\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\hrist_5hbdfer\\OneDrive\\Desktop\\work\\EventCelebration\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Smart\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\hrist_5hbdfer\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -627,7 +627,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

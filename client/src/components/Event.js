@@ -3,10 +3,9 @@ import {connect} from "react-redux"
 import * as actions from "../actions/event"
 import {Table, Button} from 'react-bootstrap';
 import "./event.css";
+import  { Link } from 'react-router-dom'
 
 const Event = (props) => {
-    // const[x, setX] = useState(0)
-    // setX(5)
 
     useEffect(() => {
         props.fetchAllEvents()
@@ -16,9 +15,12 @@ const Event = (props) => {
         <Fragment>
             <div className="mt-3">
                 <h1 className="text-center">Добре дошли в страницата за събития.</h1>
-                <Button className="float-md-right mr-5 mb-3 w-25" variant="outline-primary">Добавете събитие</Button>
+                <div className="mt-5">
+                <Link to='/EventForm' >
+                        <Button className="float-md-right mr-5 mb-3 w-100" variant="primary">Добавете събитие</Button>
+                    </Link>
                 <div>
-                    <Table className="mt-5" striped bordered hover size="sm">
+                    <Table striped bordered hover size="sm">
                         <thead>
                         <tr>
                             <th className="text-center">Име</th>
@@ -44,6 +46,7 @@ const Event = (props) => {
                     </Table>
                 </div>
             </div>
+                </div>
         </Fragment>
     )
 }
