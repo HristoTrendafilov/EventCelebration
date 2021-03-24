@@ -1,26 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hrist_5hbdfer\\OneDrive\\Desktop\\EventCelebration\\EventCelebration\\EventCelebration.csproj": {}
+    "D:\\dev\\EventCelebration\\EventCelebration\\EventCelebration\\EventCelebration.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hrist_5hbdfer\\OneDrive\\Desktop\\EventCelebration\\EventCelebration\\EventCelebration.csproj": {
+    "D:\\dev\\EventCelebration\\EventCelebration\\EventCelebration\\EventCelebration.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hrist_5hbdfer\\OneDrive\\Desktop\\EventCelebration\\EventCelebration\\EventCelebration.csproj",
+        "projectUniqueName": "D:\\dev\\EventCelebration\\EventCelebration\\EventCelebration\\EventCelebration.csproj",
         "projectName": "EventCelebration",
-        "projectPath": "C:\\Users\\hrist_5hbdfer\\OneDrive\\Desktop\\EventCelebration\\EventCelebration\\EventCelebration.csproj",
-        "packagesPath": "C:\\Users\\hrist_5hbdfer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hrist_5hbdfer\\OneDrive\\Desktop\\EventCelebration\\EventCelebration\\obj\\",
+        "projectPath": "D:\\dev\\EventCelebration\\EventCelebration\\EventCelebration\\EventCelebration.csproj",
+        "packagesPath": "C:\\Users\\AMD\\.nuget\\packages\\",
+        "outputPath": "D:\\dev\\EventCelebration\\EventCelebration\\EventCelebration\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\hrist_5hbdfer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\AMD\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.1.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\DevExpress 19.1\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
@@ -63,7 +65,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
