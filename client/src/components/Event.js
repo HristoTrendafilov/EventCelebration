@@ -16,7 +16,7 @@ const Event = (props) => {
         <Fragment>
             <div className="mt-3">
                 <h1 className="text-center">Добре дошли в страницата за събития.</h1>
-                <Button className="float-md-right mr-5 mb-3 w-25" variant="primary">Добавете събитие</Button>
+                <Button className="float-md-right mr-5 mb-3 w-25" variant="outline-primary">Добавете събитие</Button>
                 <Table className="mt-5" striped bordered hover size="sm">
                     <thead>
                     <tr>
