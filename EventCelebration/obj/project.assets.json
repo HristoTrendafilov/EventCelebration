@@ -525,27 +525,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\AMD\\.nuget\\packages\\": {}
+    "C:\\Users\\Smart\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\dev\\EventCelebration\\EventCelebration\\EventCelebration\\EventCelebration.csproj",
+      "projectUniqueName": "D:\\Git\\EventCelebration\\EventCelebration\\EventCelebration.csproj",
       "projectName": "EventCelebration",
-      "projectPath": "D:\\dev\\EventCelebration\\EventCelebration\\EventCelebration\\EventCelebration.csproj",
-      "packagesPath": "C:\\Users\\AMD\\.nuget\\packages\\",
-      "outputPath": "D:\\dev\\EventCelebration\\EventCelebration\\EventCelebration\\obj\\",
+      "projectPath": "D:\\Git\\EventCelebration\\EventCelebration\\EventCelebration.csproj",
+      "packagesPath": "C:\\Users\\Smart\\.nuget\\packages\\",
+      "outputPath": "D:\\Git\\EventCelebration\\EventCelebration\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\AMD\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.1.config",
+        "C:\\Users\\Smart\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\DevExpress 19.1\\Components\\System\\Components\\Packages": {},
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
