@@ -1,25 +1,37 @@
-﻿using EventCelebration.Models;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-
-namespace EventCelebration.Controllers
+﻿namespace EventCelebration.Controllers
 {
+    using System.Collections.Generic;
+
+    using Microsoft.AspNetCore.Mvc;
+    using Newtonsoft.Json;
+
+    using Models;
+
     [ApiController]
     [Route("api/[controller]")]
     public class EventsController : Controller
     {
+        private string eventsJSONPath = @"D:\Git\EventCelebration\EventCelebration\Data\Events.json";
+        private List<Event> events;
+
+        public EventsController()
+        {
+           events = JsonConvert.DeserializeObject<List<Event>>(System.IO.File.ReadAllText(eventsJSONPath));
+
+        }
+
         [HttpGet]
         public ActionResult<List<Event>> GetEvents()
         {
-            var events = new List<Event>()
-            {
-                new Event(){Date = new DateTime(1994,05,02), EventName = "Something", Message = "Something", PersonName = "Hristo"},
-                new Event(){Date = new DateTime(1995,05,02), EventName = "Something", Message = "Something", PersonName = "Ivan"},
-                new Event(){Date = new DateTime(1996,05,02), EventName = "Something", Message = "Something", PersonName = "Mariq"},
-            };
-
             return events;
+        }
+
+        [HttpPost]
+        public IActionResult CreateEvent()
+        {
+
+
+            return this.RedirectToAction("GetEvents");
         }
     }
 }
