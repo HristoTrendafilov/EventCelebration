@@ -11,7 +11,9 @@
     [Route("api/[controller]")]
     public class EventsController : Controller
     {
-        private string eventsJSONPath = @"D:\Git\EventCelebration\EventCelebration\Data\Events.json";
+        // private string eventsJSONPath = @"D:\Git\EventCelebration\EventCelebration\Data\Events.json";
+        private string eventsJSONPath = @"E:\#CodingStuff\EventCelebration\EventCelebration\Data\Events.json";
+
         private List<Event> events;
 
         public EventsController()
@@ -23,6 +25,7 @@
         [HttpGet]
         public ActionResult<List<Event>> GetEvents()
         {
+            
             return events;
         }
 
