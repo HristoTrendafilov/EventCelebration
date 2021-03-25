@@ -43,7 +43,6 @@ const EventForm = (props) => {
         }
         props.createEvent(values, () =>{window.alert('Успешно добавено събитие.')})
         props.history.push('/')
-        window.location.reload()
     }
 
     return (

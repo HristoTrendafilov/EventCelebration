@@ -15,7 +15,6 @@ const Event = (props) => {
     const onDelete = id => {
         if(window.confirm('Сигурни ли сте, че искате да изтриете този запис?'))
         props.deleteEvent(id)
-        window.location.reload()
         window.alert('Успешно изтрихте събитие.')
     }
 
