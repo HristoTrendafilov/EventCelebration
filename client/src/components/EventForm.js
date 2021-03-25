@@ -3,11 +3,12 @@ import { Form, Button } from "react-bootstrap"
 import useForm from './useForm'
 import * as actions from "../actions/event";
 import {connect} from "react-redux"
+import {Redirect} from "react-router-dom"
 
 const initialFieldValues = {
     personName: '',
     date: '',
-    event: '',
+    eventName: '',
     message: ''
 }
 
@@ -17,7 +18,7 @@ const EventForm = (props) => {
         let temp ={}
         temp.personName = values.personName?"":"Това поле е задължително."
         temp.date = values.date?"":"Това поле е задължително."
-        temp.event = values.event?"":"Това поле е задължително."
+        temp.eventName = values.eventName?"":"Това поле е задължително."
         temp.message = values.message?"":"Това поле е задължително."
         setErrors({
             ...temp
@@ -40,6 +41,7 @@ const EventForm = (props) => {
             window.alert("Моля, попълнете всички полета.")
         }
         props.createEvent(values, () =>{window.alert('inserted.')})
+        props.history.push('/');
     }
 
     return (
@@ -69,8 +71,8 @@ const EventForm = (props) => {
                     <Form.Group className="col-md-6">
                         <Form.Label>Събитие</Form.Label>
                         <Form.Control
-                            name="event"
-                            value={values.event}
+                            name="eventName"
+                            value={values.eventName}
                             onChange={handleInputChange}
                         />
                     </Form.Group>

@@ -23,9 +23,6 @@ namespace EventCelebration
             {
                 c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             });
-            services.AddControllersWithViews()
-                .AddNewtonsoftJson(options=> options.SerializerSettings.ReferenceLoopHandling = 
-                                                                         Newtonsoft.Json.ReferenceLoopHandling.Ignore);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

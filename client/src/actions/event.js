@@ -20,7 +20,7 @@ export const fetchAll = () => dispatch => {
 }
 
 export const create = (data, onSuccess) => dispatch => {
-        api.event().create()
+        api.event().create(data)
             .then(response => {
                 dispatch({
                     type: ACTION_TYPES.CREATE,

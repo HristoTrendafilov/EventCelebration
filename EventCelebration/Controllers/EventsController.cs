@@ -13,30 +13,22 @@
     {
         private string eventsJSONPath = @"..\EventCelebration\Data\Events.json";
 
-        private List<Event> events;
-
-        public EventsController()
-        {
-            events = JsonConvert.DeserializeObject<List<Event>>(System.IO.File.ReadAllText(eventsJSONPath));
-
-        }
 
         [HttpGet]
         public ActionResult<List<Event>> GetEvents()
         {
-            
+            var events = JsonConvert.DeserializeObject<List<Event>>(System.IO.File.ReadAllText(eventsJSONPath));
             return events;
         }
 
         [HttpPost]
         public ActionResult CreateEvent(Event @event)
         {
-
-            events.Add(@event);
-
-            System.IO.File.WriteAllText(eventsJSONPath, JsonConvert.SerializeObject(events));
-
-            return this.RedirectToAction("GetEvents");
+            var list = JsonConvert.DeserializeObject<List<Event>>(System.IO.File.ReadAllText(eventsJSONPath));
+            list.Add(@event);
+            var convertedJson = JsonConvert.SerializeObject(list, Formatting.Indented);
+            System.IO.File.WriteAllText(eventsJSONPath, convertedJson);
+            return NoContent();
         }
     }
 }

@@ -7,7 +7,8 @@
         public Event()
         {
             this.Id = Guid.NewGuid().ToString();
-    }
+            this.CreatedOn = DateTime.Now;
+        }
 
         public string Id { get; set; }
 
@@ -19,6 +20,6 @@
 
         public string Message { get; set; }
 
-        public string Value { get; set; }
+        public DateTime CreatedOn { get; set; }
     }
 }
