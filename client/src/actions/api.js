@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "http://localhost:50869/api/";
+const baseUrl = "http://localhost:5000/api/";
 
 export default {
     event(url = baseUrl + "events/"){

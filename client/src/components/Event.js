@@ -35,7 +35,7 @@ const Event = (props) => {
                                 return (
                                     <tr key={index}>
                                         <td className="text-center w-25">{record.personName}</td>
-                                        <td className="text-center">{record.date.toString().slice(0,10)}</td>
+                                        <td className="text-center">{record.date}</td>
                                         <td className="text-center">{record.eventName}</td>
                                         <td className="w-50">{record.message}</td>
                                     </tr>

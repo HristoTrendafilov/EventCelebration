@@ -18,11 +18,11 @@ function App() {
     </Nav>
   </Navbar>
       <Router>
-        <Route path="/EventForm" exact={true} render={() =>{
-          return (<EventForm/>)
+        <Route path="/EventForm" exact={true} render={(props) =>{
+          return (<EventForm {...props}/>)
         }}/>
-        <Route path="/" exact={true} render={() =>{
-          return (<Event/>)
+        <Route path="/" exact={true} render={(props) =>{
+          return (<Event {...props} />)
         }}/>
       </Router>
     </Provider>
