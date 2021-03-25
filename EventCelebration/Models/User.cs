@@ -9,9 +9,9 @@
         public User()
         {
             this.Id = Guid.NewGuid().ToString();
+            this.Token = Guid.NewGuid().ToString();
         }
 
-        [Required]
         public string Id { get; set; }
 
         [Required]
@@ -20,6 +20,8 @@
         [Required]
         public string Password { get; set; }
 
-        public string JWTBearer { get; set; }
+        public string Token {get; set; }
+
+        //public string JWTBearer { get; set; }
     }
 }
