@@ -1,6 +1,5 @@
 ﻿namespace EventCelebration.Controllers
 {
-    using System;
     using System.Collections.Generic;
 
     using Microsoft.AspNetCore.Mvc;
@@ -12,8 +11,7 @@
     [Route("api/[controller]")]
     public class EventsController : ControllerBase
     {
-        // private string eventsJSONPath = @"D:\Git\EventCelebration\EventCelebration\Data\Events.json";
-        private string eventsJSONPath = @"E:\#CodingStuff\EventCelebration\EventCelebration\Data\Events.json";
+        private string eventsJSONPath = @"..\EventCelebration\Data\Events.json";
 
         private List<Event> events;
 
