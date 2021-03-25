@@ -7,7 +7,6 @@
     using Newtonsoft.Json;
 
     using Models;
-    using System;
 
     [ApiController]
     [Route("api/[controller]")]
@@ -34,7 +33,6 @@
         [HttpPost]
         public ActionResult CreateEvent(Event @event)
         {
-           // @event.Id = Guid.NewGuid().ToString();
 
             events.Add(@event);
 
