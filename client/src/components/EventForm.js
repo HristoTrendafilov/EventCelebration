@@ -4,6 +4,7 @@ import useForm from './useForm'
 import * as actions from "../actions/event";
 import {connect} from "react-redux"
 import {Redirect} from "react-router-dom"
+import {currentId, setCurrentId} from './Event'
 
 const initialFieldValues = {
     personName: '',
@@ -40,8 +41,9 @@ const EventForm = (props) => {
         if(!validate()){
             window.alert("Моля, попълнете всички полета.")
         }
-        props.createEvent(values, () =>{window.alert('inserted.')})
-        props.history.push('/');
+        props.createEvent(values, () =>{window.alert('Успешно добавено събитие.')})
+        props.history.push('/')
+        window.location.reload()
     }
 
     return (

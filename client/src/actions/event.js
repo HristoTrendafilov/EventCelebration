@@ -32,7 +32,7 @@ export const create = (data, onSuccess) => dispatch => {
 }
 
 export const update = (id, data, onSuccess) => dispatch => {
-    api.event.update(id, data)
+    api.event().update(id, data)
         .then(response => {
             dispatch({
                 type: ACTION_TYPES.UPDATE,
@@ -44,7 +44,7 @@ export const update = (id, data, onSuccess) => dispatch => {
 }
 
 export const Delete = (id, onSuccess) => dispatch => {
-    api.event.delete(id)
+    api.event().delete(id)
         .then(response => {
             dispatch({
                 type: ACTION_TYPES.DELETE,

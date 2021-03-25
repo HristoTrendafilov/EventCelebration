@@ -1,106 +1,26 @@
 [
   {
-    "Id": "878cb946-9210-418d-a454-266d76536c3a",
-    "PersonName": "asdsadsad",
-    "Date": "2021-03-10T00:00:00",
-    "EventName": "saddsa",
-    "Message": "asdsadsad",
-    "CreatedOn": "2021-03-25T15:28:42.5509999+02:00"
-  },
-  {
-    "Id": "878cb946-9210-418d-a454-266d76536c3a",
-    "PersonName": "asdsadsad",
-    "Date": "2021-03-10T00:00:00",
-    "EventName": "saddsa",
-    "Message": "asdsadsad",
-    "CreatedOn": "2021-03-25T15:28:42.5509999+02:00"
-  },
-  {
-    "Id": "4edab4fd-a569-4e51-a74c-886942e70fd1",
-    "PersonName": "dsasad",
-    "Date": "2021-03-19T00:00:00",
-    "EventName": "sadasd",
-    "Message": "sadsad",
-    "CreatedOn": "2021-03-25T16:08:44.4420329+02:00"
-  },
-  {
-    "Id": "3f87ce1b-e1f2-47c3-ba2d-5c5fa56ff3af",
-    "PersonName": "Христо",
-    "Date": "2021-03-12T00:00:00",
-    "EventName": "Рожден ден",
-    "Message": "Нещо си там",
-    "CreatedOn": "2021-03-25T16:10:34.9613028+02:00"
-  },
-  {
-    "Id": "934bbcc9-1441-4034-a544-6c60d3afee37",
-    "PersonName": "Христо2",
-    "Date": "2021-03-10T00:00:00",
-    "EventName": "Кот такоа",
-    "Message": "асдададс",
-    "CreatedOn": "2021-03-25T16:11:08.5760652+02:00"
-  },
-  {
-    "Id": "7f243c09-78d3-45af-9b4b-a6b71d40100a",
-    "PersonName": "Христо5",
-    "Date": "2021-03-18T00:00:00",
-    "EventName": "asdsad",
-    "Message": "sadsad",
-    "CreatedOn": "2021-03-25T16:18:05.0059649+02:00"
-  },
-  {
-    "Id": "80ff05df-8704-423e-b737-db8f3e0ced61",
-    "PersonName": "sadsads",
-    "Date": "2021-03-12T00:00:00",
-    "EventName": "adsdas",
-    "Message": "asd",
-    "CreatedOn": "2021-03-25T16:19:21.4942018+02:00"
-  },
-  {
-    "Id": "04effc62-f4ed-4527-83f8-07efd4e698e3",
-    "PersonName": "Христо10",
-    "Date": "2021-03-04T00:00:00",
-    "EventName": "adsda",
-    "Message": "adads",
-    "CreatedOn": "2021-03-25T16:19:49.4839985+02:00"
-  },
-  {
-    "Id": "a04fa2ab-138e-4d8e-abbf-962be1e26c9f",
-    "PersonName": "Христо20",
-    "Date": "2021-03-04T00:00:00",
-    "EventName": "ad",
-    "Message": "daaddas",
-    "CreatedOn": "2021-03-25T16:29:12.4686153+02:00"
-  },
-  {
-    "Id": "4a8d5d98-76f9-4a79-8ae4-36a6a76fa677",
-    "PersonName": "Христо25",
-    "Date": "2021-03-24T00:00:00",
-    "EventName": "ассад",
-    "Message": "асддса",
-    "CreatedOn": "2021-03-25T16:45:30.3371363+02:00"
-  },
-  {
-    "Id": "0b4c74b6-ea7b-4d6e-ba97-82f39b241501",
-    "PersonName": "храсрасрарс",
-    "Date": "2021-03-18T00:00:00",
-    "EventName": "асддса",
-    "Message": "асддса",
-    "CreatedOn": "2021-03-25T16:47:51.3350446+02:00"
-  },
-  {
-    "Id": "0f51d8da-4384-4520-887e-e6e97bbeb7ee",
-    "PersonName": "асдсад",
+    "Id": "9a8e84b0-8ae4-4c8e-8b2e-d4b4c74b9b7a",
+    "PersonName": "asdsad",
     "Date": "2021-03-11T00:00:00",
-    "EventName": "садсадса",
-    "Message": "асддса",
-    "CreatedOn": "2021-03-25T16:49:15.0376728+02:00"
+    "EventName": "asddsa",
+    "Message": "sdasdaasd",
+    "CreatedOn": "2021-03-25T20:36:30.3474619+02:00"
   },
   {
-    "Id": "e1945852-576b-4c97-abb8-aa1c7581f863",
-    "PersonName": "Христо202020",
-    "Date": "2021-03-18T00:00:00",
-    "EventName": "дадса",
-    "Message": "адсас",
-    "CreatedOn": "2021-03-25T16:53:08.8136325+02:00"
+    "Id": "2adefd22-5a82-44c7-a146-092ba80cfe0d",
+    "PersonName": "esgdgsdg",
+    "Date": "2021-03-17T00:00:00",
+    "EventName": "sgds",
+    "Message": "gsgsd",
+    "CreatedOn": "2021-03-25T20:38:04.5953708+02:00"
+  },
+  {
+    "Id": "44de844b-4825-4e9a-b893-be61ff289f2c",
+    "PersonName": "sdadasds",
+    "Date": "2021-03-11T00:00:00",
+    "EventName": "adsdas",
+    "Message": "dassdaasd",
+    "CreatedOn": "2021-03-25T20:38:43.8674748+02:00"
   }
 ]
