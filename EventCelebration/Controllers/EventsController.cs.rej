@@ -1,0 +1,21 @@
+diff a/EventCelebration/Controllers/EventsController.cs b/EventCelebration/Controllers/EventsController.cs	(rejected hunks)
+@@ -26,13 +26,17 @@
+         public ActionResult<List<Event>> GetEvents()
+         {
+             
+-            return events;
++            return this.events;
+         }
+ 
+         [HttpPost]
+-        public IActionResult CreateEvent()
++        public ActionResult CreateEvent(Event @event)
+         {
++           // @event.Id = Guid.NewGuid().ToString();
+ 
++            events.Add(@event);
++
++            System.IO.File.WriteAllText(eventsJSONPath, JsonConvert.SerializeObject(events));
+ 
+             return this.RedirectToAction("GetEvents");
+         }

@@ -4,6 +4,11 @@
     
     public class Event
     {
+        public Event()
+        {
+            this.Id = Guid.NewGuid().ToString();
+    }
+
         public string Id { get; set; }
 
         public string PersonName { get; set; }
