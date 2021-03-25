@@ -1,29 +1,86 @@
-import { React, Fragment } from "react";
+import React, {useState, Fragment} from "react";
 import { Form, Button } from "react-bootstrap"
+import useForm from './useForm'
+
+const initialFieldValues = {
+    personName: '',
+    date: '',
+    event: '',
+    message: ''
+}
 
 const EventForm = (props) => {
+
+    const validate = () => {
+        let temp ={}
+        temp.personName = values.personName?"":"Това поле е задължително."
+        temp.date = values.date?"":"Това поле е задължително."
+        temp.event = values.event?"":"Това поле е задължително."
+        temp.message = values.message?"":"Това поле е задължително."
+        setErrors({
+            ...temp
+        })
+
+        return Object.values(temp).every(x => x =="")
+    }
+
+    const {
+        values,
+        setValues,
+        errors,
+        setErrors,
+        handleInputChange
+    } = useForm(initialFieldValues)
+
+    const handleSubmit = e => {
+        e.preventDefault()
+        if(!validate()){
+            window.alert("Моля, попълнете всички полета.")
+        }
+        console.log(values)
+    }
+
     return (
         <Fragment>
             <h1 className="text-center mt-4">Добавете събитие</h1>
-            <Form className="container mt-5">
+            <Form className="container mt-5" onSubmit={handleSubmit}>
                 <div className="row">
-                    <Form.Group className="col-md-6" controlId="formBasicEmail">
+                    <Form.Group className="col-md-6">
                         <Form.Label>Име</Form.Label>
-                        <Form.Control />
+                        <Form.Control
+                            name="personName"
+                            value={values.personName}
+                            onChange={handleInputChange}
+                        />
                     </Form.Group>
-                    <Form.Group className="col-md-6" controlId="formBasicEmail">
+                    <Form.Group className="col-md-6">
                         <Form.Label>Дата</Form.Label>
-                        <Form.Control type="date"/>
+                        <Form.Control
+                            type="date"
+                            name="date"
+                            value={values.date}
+                            onChange={handleInputChange}
+                        />
                     </Form.Group>
                 </div>
                 <div className="row">
-                    <Form.Group className="col-md-6" controlId="formBasicEmail">
+                    <Form.Group className="col-md-6">
                         <Form.Label>Събитие</Form.Label>
-                        <Form.Control />
+                        <Form.Control
+                            name="event"
+                            value={values.event}
+                            onChange={handleInputChange}
+                        />
                     </Form.Group>
-                    <Form.Group className="col-md-6" controlId="exampleForm.ControlTextarea1">
+                    <Form.Group className="col-md-6">
                         <Form.Label>Съобщение</Form.Label>
-                        <Form.Control as="textarea" rows={3} />
+                        <Form.Control
+                            name="message"
+                            value={values.message}
+                            onChange={handleInputChange}
+                            as="textarea"
+                            rows={3}
+                        />
                     </Form.Group>
                 </div>
                 <Button className="w-100 mt-5" variant="success" type="submit">

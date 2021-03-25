@@ -7,12 +7,14 @@
     using Newtonsoft.Json;
 
     using Models;
+    using System;
 
     [ApiController]
     [Route("api/[controller]")]
     public class EventsController : ControllerBase
     {
-        private string eventsJSONPath =  @"..\EventCelebration\Data\Events.json";
+        // private string eventsJSONPath = @"D:\Git\EventCelebration\EventCelebration\Data\Events.json";
+        private string eventsJSONPath = @"E:\#CodingStuff\EventCelebration\EventCelebration\Data\Events.json";
 
         private List<Event> events;
 
@@ -26,7 +28,7 @@
         public ActionResult<List<Event>> GetEvents()
         {
             
-            return this.events;
+            return events;
         }
 
         [HttpPost]
