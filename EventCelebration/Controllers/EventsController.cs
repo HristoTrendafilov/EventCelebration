@@ -6,27 +6,23 @@
     using Newtonsoft.Json;
 
     using Models;
+    using System;
 
     [ApiController]
     [Route("api/[controller]")]
     public class EventsController : Controller
     {
-        // private string eventsJSONPath = @"D:\Git\EventCelebration\EventCelebration\Data\Events.json";
-        private string eventsJSONPath = @"E:\#CodingStuff\EventCelebration\EventCelebration\Data\Events.json";
-
-        private List<Event> events;
-
-        public EventsController()
-        {
-            events = JsonConvert.DeserializeObject<List<Event>>(System.IO.File.ReadAllText(eventsJSONPath));
-
-        }
 
         [HttpGet]
         public ActionResult<List<Event>> GetEvents()
         {
-            
-            return events;
+            return new List<Event>()
+            {
+                new Event(){Date =  new DateTime(1993,05,02), EventName = "Birthdate", Message = "some message some message some message some message some message some message some message some message some messagesome messagesome message", PersonName = "Hristo", },
+                new Event(){Date =  new DateTime(1994,05,02), EventName = "Birthdate", Message = "some message", PersonName = "Ivan", },
+                new Event(){Date =  new DateTime(1995,05,02), EventName = "Birthdate", Message = "some message", PersonName = "Mariq", },
+                new Event(){Date =  new DateTime(1996,05,02), EventName = "Birthdate", Message = "some message", PersonName = "Hristo1", },
+            };
         }
 
         [HttpPost]
