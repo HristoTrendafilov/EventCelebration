@@ -1,6 +1,8 @@
 import React, {useState, Fragment} from "react";
 import { Form, Button } from "react-bootstrap"
 import useForm from './useForm'
+import * as actions from "../actions/event";
+import {connect} from "react-redux"
 
 const initialFieldValues = {
     personName: '',
@@ -37,7 +39,7 @@ const EventForm = (props) => {
         if(!validate()){
             window.alert("Моля, попълнете всички полета.")
         }
-        console.log(values)
+        props.createEvent(values, () =>{window.alert('inserted.')})
     }
 
     return (
@@ -90,4 +92,13 @@ const EventForm = (props) => {
         </Fragment>)
 }
 
-export default EventForm;
+const mapStateToProps = state => ({
+    eventList: state.event.list
+})
+
+const mapActionToProps = {
+    createEvent: actions.create,
+    updateEvent: actions.update
+}
+
+export default connect(mapStateToProps, mapActionToProps)(EventForm);

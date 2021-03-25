@@ -10,7 +10,21 @@ export const event = (state=initialState, action) => {
                 ...state,
                 list:[...action.payload]
             }
-    
+        case ACTION_TYPES.CREATE:
+            return{
+                ...state,
+                list:[...state.list, action.payload]
+            }
+        case ACTION_TYPES.UPDATE:
+            return{
+                ...this.state,
+                list: state.list.map(x => x.id == action.payload.id ? action.payload : x)
+            }
+        case ACTION_TYPES.DELETE:
+            return{
+                ...this.state,
+                list: state.list.filter(x => x.id != action.payload)
+            }
         default:
             return state
     }
