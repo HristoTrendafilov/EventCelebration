@@ -1,5 +1,6 @@
 ﻿namespace EventCelebration.Controllers
 {
+    using System;
     using System.Collections.Generic;
 
     using Microsoft.AspNetCore.Mvc;
@@ -9,10 +10,9 @@
 
     [ApiController]
     [Route("api/[controller]")]
-    public class EventsController : Controller
+    public class EventsController : ControllerBase
     {
-        // private string eventsJSONPath = @"D:\Git\EventCelebration\EventCelebration\Data\Events.json";
-        private string eventsJSONPath = @"E:\#CodingStuff\EventCelebration\EventCelebration\Data\Events.json";
+        private string eventsJSONPath =  @"..\EventCelebration\Data\Events.json";
 
         private List<Event> events;
 
@@ -26,13 +26,17 @@
         public ActionResult<List<Event>> GetEvents()
         {
             
-            return events;
+            return this.events;
         }
 
         [HttpPost]
-        public IActionResult CreateEvent()
+        public ActionResult CreateEvent(Event @event)
         {
+           // @event.Id = Guid.NewGuid().ToString();
 
+            events.Add(@event);
+
+            System.IO.File.WriteAllText(eventsJSONPath, JsonConvert.SerializeObject(events));
 
             return this.RedirectToAction("GetEvents");
         }
