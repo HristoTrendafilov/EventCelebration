@@ -18,3 +18,39 @@ export const fetchAll = () => dispatch => {
         })
         .catch(err => console.log(err))
 }
+
+export const create = (data, onSuccess) => dispatch => {
+        api.event().create()
+            .then(response => {
+                dispatch({
+                    type: ACTION_TYPES.CREATE,
+                    payload: response.data
+                })
+                onSuccess()
+            })
+            .catch(err => console.log(err))
+}
+
+export const update = (id, data, onSuccess) => dispatch => {
+    api.event.update(id, data)
+        .then(response => {
+            dispatch({
+                type: ACTION_TYPES.UPDATE,
+                payload: {id, ...data}
+            })
+            onSuccess()
+        })
+        .catch(err => console.log(err))
+}
+
+export const Delete = (id, onSuccess) => dispatch => {
+    api.event.delete(id)
+        .then(response => {
+            dispatch({
+                type: ACTION_TYPES.DELETE,
+                payload: id
+            })
+            onSuccess()
+        })
+        .catch(err => console.log(err))
+}
