@@ -19,7 +19,13 @@ namespace EventCelebration
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddCors();
+            services.AddCors(c=>
+            {
+                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+            });
+            services.AddControllersWithViews()
+                .AddNewtonsoftJson(options=> options.SerializerSettings.ReferenceLoopHandling = 
+                                                                         Newtonsoft.Json.ReferenceLoopHandling.Ignore);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -27,9 +33,10 @@ namespace EventCelebration
         {
             app.UseCors(options =>
             {
-                options.WithOrigins("http://localhost:3000")
-                .AllowAnyHeader()
-                .AllowAnyMethod();
+                options
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
             });
 
             if (env.IsDevelopment())

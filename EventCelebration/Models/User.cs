@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace EventCelebration.Models
+﻿namespace EventCelebration.Models
 {
+    using System;
+    using System.ComponentModel.DataAnnotations;
+
+
     public class User
     {
         public User()
@@ -12,10 +11,15 @@ namespace EventCelebration.Models
             this.Id = Guid.NewGuid().ToString();
         }
 
+        [Required]
         public string Id { get; set; }
 
+        [Required]
         public string Username { get; set; }
-
+        
+        [Required]
         public string Password { get; set; }
+
+        public string JWTBearer { get; set; }
     }
 }
