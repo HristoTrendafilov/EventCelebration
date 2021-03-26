@@ -19,23 +19,33 @@
     {
         private const string secretKey = "Smth";
         private string usersJSONPath = @"..\EventCelebration\Data\Users.json";
+
         private List<User> users;
+        private List<User> convertedUsers;
 
         public UserController()
         {
-            users = new List<User>();
+            this.users = new List<User>();
+            this.convertedUsers = JsonConvert.DeserializeObject<List<User>>(System.IO.File.ReadAllText(usersJSONPath));
         }
 
         [HttpPost]
         [Route("Register")]
         public ActionResult<User> Register(User user)
         {
-            var convertedUsers = JsonConvert.DeserializeObject<List<User>>(System.IO.File.ReadAllText(usersJSONPath));
             if (convertedUsers != null)
             {
                 foreach(var convertedUser in convertedUsers)
                 {
                     users.Add(convertedUser);
+                }
+            }
+
+            foreach(var currentUser in users)
+            {
+                if (currentUser.Username==user.Username)
+                {
+                    return this.StatusCode(409);
                 }
             }
 
@@ -52,7 +62,8 @@
         }
 
         [HttpPost]
-        public ActionResult Login()
+        [Route("Login")]
+        public ActionResult Login(User user)
         {
             return null;
         }
