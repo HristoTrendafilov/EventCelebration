@@ -6,11 +6,6 @@
 
     public class User
     {
-        public User()
-        {
-            this.Id = Guid.NewGuid().ToString();
-            this.Token = Guid.NewGuid().ToString();
-        }
 
         public string Id { get; set; }
 

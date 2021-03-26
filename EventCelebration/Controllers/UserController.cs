@@ -2,13 +2,10 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.IdentityModel.Tokens.Jwt;
-    using System.Security.Claims;
     using System.Security.Cryptography;
     using System.Text;
 
     using Microsoft.AspNetCore.Mvc;
-    using Microsoft.IdentityModel.Tokens;
     using Newtonsoft.Json;
 
     using Models;
@@ -21,42 +18,44 @@
         private string usersJSONPath = @"..\EventCelebration\Data\Users.json";
 
         private List<User> users;
-        private List<User> convertedUsers;
 
         public UserController()
         {
-            this.users = new List<User>();
-            this.convertedUsers = JsonConvert.DeserializeObject<List<User>>(System.IO.File.ReadAllText(usersJSONPath));
+            this.users = JsonConvert.DeserializeObject<List<User>>(System.IO.File.ReadAllText(usersJSONPath));
         }
 
         [HttpPost]
         [Route("Register")]
         public ActionResult<User> Register(User user)
         {
-            if (convertedUsers != null)
+            if (!ModelState.IsValid)
             {
-                foreach(var convertedUser in convertedUsers)
-                {
-                    users.Add(convertedUser);
-                }
+                return this.BadRequest();
             }
 
-            foreach(var currentUser in users)
-            {
-                if (currentUser.Username==user.Username)
-                {
-                    return this.StatusCode(409);
-                }
-            }
-
+            user.Id = Guid.NewGuid().ToString();
             user.Password = ComputeSha256Hash(user.Password);
 
             // user.JWTBearer = GenerateJwtToken(user);
 
-            users.Add(user);
-            var convertedJson = JsonConvert.SerializeObject(users, Formatting.Indented);
-            System.IO.File.WriteAllText(usersJSONPath, convertedJson);
+            if (users != null)
+            {
+                foreach (var currentUser in users)
+                {
+                    if (currentUser.Username == user.Username)
+                    {
+                        return this.StatusCode(409);
+                    }
+                }
+            }
+            else
+            {
+                users = new List<User>();
+            }
 
+            users.Add(user);
+
+            SerializeUsersToJSON(users);
 
             return this.Ok();
         }
@@ -65,7 +64,36 @@
         [Route("Login")]
         public ActionResult Login(User user)
         {
-            return null;
+            if (!ModelState.IsValid)
+            {
+                return this.BadRequest();
+            }
+
+            user.Password = ComputeSha256Hash(user.Password);
+
+            if (users != null)
+            {
+                for (int i = 0; i < users.Count; i++)
+                {
+                    var currentUser = users[i];
+                    if (currentUser.Username == user.Username && currentUser.Password==user.Password)
+                    {
+                        currentUser.Token = Guid.NewGuid().ToString();
+                        SerializeUsersToJSON(users);
+                        return this.Ok();
+                    }
+
+                }
+
+            }
+
+            return this.NotFound();
+        }
+
+        public void SerializeUsersToJSON(List<User> users)
+        {
+            var convertedJson = JsonConvert.SerializeObject(users, Formatting.Indented);
+            System.IO.File.WriteAllText(usersJSONPath, convertedJson);
         }
 
         //private string GenerateJwtToken(User user)
