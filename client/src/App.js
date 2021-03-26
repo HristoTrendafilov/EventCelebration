@@ -7,6 +7,7 @@ import {BrowserRouter as Router} from 'react-router-dom'
 import Route from 'react-router-dom/Route'
 import EventForm from './components/EventForm'
 import {Navbar, Button, Nav, Form, FormControl} from 'react-bootstrap';
+import UserLoginForm from "./components/UserLoginForm";
 
 function App() {
   return (
@@ -29,6 +30,9 @@ function App() {
         }}/>
         <Route path="/userRegister" exact={true} render={(props) =>{
           return (<UserRegisterForm {...props} />)
+        }}/>
+        <Route path="/userLogin" exact={true} render={(props) =>{
+          return (<UserLoginForm {...props} />)
         }}/>
       </Router>
     </Provider>

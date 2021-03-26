@@ -12,9 +12,10 @@ export default {
             delete: id => axios.delete(url+id)
         }
     },
-    user(url = baseUrl + "user"){
+    user(url = baseUrl + "user/"){
         return {
-            register: userRecord => axios.post(url + '/register/', userRecord)
+            register: userRecord => axios.post(url + 'register/', userRecord),
+            login: userRecord => axios.post(url + 'login/', userRecord)
         }
     }
 }

@@ -10,5 +10,27 @@ export const register = (data, onSuccess) => dispatch => {
             })
             onSuccess()
         })
-        .catch(err => console.log(err))
+        .catch(function (error) {
+            if(error.response.status === 409){
+                window.alert('Потребителското име вече съществува.')
+            }
+        })
+}
+
+export const login = (data, onSuccess) => dispatch => {
+    api.user().login(data)
+        .then(response => {
+            dispatch({
+                type: ACTION_TYPES.CREATE,
+                payload: response.data
+            })
+            onSuccess()
+        })
+        .catch(function (error) {
+            if(error.response.status === 400){
+                window.alert('Невалидни данни.')
+            }else if(error.response.status === 404){
+                window.alert('Не съществува потребител с такова потребителско име.')
+            }
+        })
 }

@@ -11,7 +11,7 @@ const initialFieldValues = {
 
 const userRegisterForm = (props) => {
 
-     const validate = () => {
+    const validate = () => {
         let temp ={}
         temp.username = values.username?"":"Това поле е задължително."
         temp.password = values.password?"":"Това поле е задължително."
@@ -33,13 +33,13 @@ const userRegisterForm = (props) => {
         if(!validate()){
             window.alert("Моля, попълнете всички полета.")
         }else{
-            props.createUser(values, () =>{props.history.push('/userLogin')})
+            props.loginUser(values, () =>{props.history.push('/userLogin')})
         }
     }
 
     return(
         <Fragment>
-            <h1 className="text-center mt-4">Регистрация</h1>
+            <h1 className="text-center mt-4">Вход</h1>
             <Form style={{maxWidth: '30vw'}} className="container mt-5" onSubmit={handleSubmit}>
                 <div>
                     <Form.Group>
@@ -73,7 +73,7 @@ const mapStateToProps = state => ({
 })
 
 const mapActionToProps = {
-    createUser: actions.register,
+    loginUser: actions.login,
 }
 
 export default connect(mapStateToProps, mapActionToProps)(userRegisterForm);

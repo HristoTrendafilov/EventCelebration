@@ -27,8 +27,10 @@
         {
             var list = JsonConvert.DeserializeObject<List<Event>>(System.IO.File.ReadAllText(eventsJSONPath));
             list.Add(@event);
+
             var convertedJson = JsonConvert.SerializeObject(list, Formatting.Indented);
             System.IO.File.WriteAllText(eventsJSONPath, convertedJson);
+
             return NoContent();
         }
 
@@ -42,6 +44,7 @@
             
             var convertedJson = JsonConvert.SerializeObject(list, Formatting.Indented);
             System.IO.File.WriteAllText(eventsJSONPath, convertedJson);
+
             return NoContent();
         }
     }
