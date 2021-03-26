@@ -1,26 +1,18 @@
 [
   {
-    "Id": "9a8e84b0-8ae4-4c8e-8b2e-d4b4c74b9b7a",
-    "PersonName": "asdsad",
-    "Date": "2021-03-11T00:00:00",
-    "EventName": "asddsa",
-    "Message": "sdasdaasd",
-    "CreatedOn": "2021-03-25T20:36:30.3474619+02:00"
+    "Id": "af3c75a3-8aae-4966-b9a7-8657fab2754d",
+    "PersonName": "dsasa",
+    "Date": "2021-03-12T00:00:00",
+    "EventName": "asdsad",
+    "Message": "adsadsad",
+    "CreatedOn": "2021-03-26T09:51:56.7919366+02:00"
   },
   {
-    "Id": "c8263cbd-c714-4b0e-9bfd-6516d8009d42",
-    "PersonName": "asdfa",
-    "Date": "2021-03-18T00:00:00",
-    "EventName": "fasfasfsa",
-    "Message": "ffasfsa",
-    "CreatedOn": "2021-03-25T20:46:05.7589474+02:00"
-  },
-  {
-    "Id": "70c702e2-5389-41ee-9933-6c530371c868",
-    "PersonName": "asdasd",
-    "Date": "2021-03-13T00:00:00",
-    "EventName": "sdasad",
-    "Message": "sadsda",
-    "CreatedOn": "2021-03-25T20:46:22.2527641+02:00"
+    "Id": "9a76decd-a0ff-4471-878a-288e14c9738c",
+    "PersonName": "sadsad",
+    "Date": "2021-03-20T00:00:00",
+    "EventName": "sadsad",
+    "Message": "sadsad",
+    "CreatedOn": "2021-03-26T09:52:08.9505422+02:00"
   }
 ]

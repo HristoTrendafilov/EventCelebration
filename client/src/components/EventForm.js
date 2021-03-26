@@ -1,10 +1,8 @@
 import React, {useState, Fragment} from "react";
 import { Form, Button } from "react-bootstrap"
-import useForm from './useForm'
+import UseForm from './useForm'
 import * as actions from "../actions/event";
 import {connect} from "react-redux"
-import {Redirect} from "react-router-dom"
-import {currentId, setCurrentId} from './Event'
 
 const initialFieldValues = {
     personName: '',
@@ -30,19 +28,19 @@ const EventForm = (props) => {
 
     const {
         values,
-        setValues,
-        errors,
         setErrors,
         handleInputChange
-    } = useForm(initialFieldValues)
+    } = UseForm(initialFieldValues)
 
     const handleSubmit = e => {
         e.preventDefault()
         if(!validate()){
             window.alert("Моля, попълнете всички полета.")
+        }else{
+            props.createEvent(values, () =>{window.alert('Успешно добавено събитие.')})
+            props.history.push('/')
+            window.location.reload()
         }
-        props.createEvent(values, () =>{window.alert('Успешно добавено събитие.')})
-        props.history.push('/')
     }
 
     return (

@@ -11,5 +11,10 @@ export default {
             update: (id, updateRecord) => axios.put(url+id, updateRecord),
             delete: id => axios.delete(url+id)
         }
+    },
+    user(url = baseUrl + "user"){
+        return {
+            register: userRecord => axios.post(url + 'Register/', userRecord)
+        }
     }
 }

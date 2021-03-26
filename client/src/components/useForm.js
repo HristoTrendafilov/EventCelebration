@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 
-const useForm = (initialFieldValues) => {
+const UseForm = (initialFieldValues) => {
     const [values, setValues] = useState(initialFieldValues)
     const [errors, setErrors] = useState({})
 
@@ -20,4 +20,4 @@ const useForm = (initialFieldValues) => {
     };
 }
 
-export default  useForm;
+export default  UseForm;
