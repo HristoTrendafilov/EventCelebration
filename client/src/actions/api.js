@@ -14,7 +14,7 @@ export default {
     },
     user(url = baseUrl + "user"){
         return {
-            register: userRecord => axios.post(url + 'Register/', userRecord)
+            register: userRecord => axios.post(url + '/register/', userRecord)
         }
     }
 }
