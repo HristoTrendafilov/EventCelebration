@@ -35,6 +35,7 @@ const userRegisterForm = (props) => {
         }else{
             props.loginUser(values, () =>{props.history.push('/')})
         }
+        localStorage.setItem('isLoggedIn', 'true');
     }
 
     return(

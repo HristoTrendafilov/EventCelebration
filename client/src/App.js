@@ -19,6 +19,7 @@ function App() {
       <Nav.Link href="/EventForm">Добави събитие</Nav.Link>
       <Nav.Link className="border-left pl-2 ml-auto" href="/userRegister">Регистрация</Nav.Link>
       <Nav.Link href="/userLogin">Вход</Nav.Link>
+      <Nav.Link onclick={sessionStorage.clear()}>Изход</Nav.Link>
     </Nav>
   </Navbar>
       <Router>
