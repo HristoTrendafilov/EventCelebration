@@ -17,12 +17,12 @@ export const event = (state=initialState, action) => {
             }
         case ACTION_TYPES.UPDATE:
             return{
-                ...this.state,
+                ...state,
                 list: state.list.map(x => x.id == action.payload.id ? action.payload : x)
             }
         case ACTION_TYPES.DELETE:
             return{
-                ...this.state,
+                ...state,
                 list: state.list.filter(x => x.id != action.payload)
             }
         default:

@@ -1,6 +1,7 @@
 import { ACTION_TYPES } from "../actions/event";
 const initialState = {
-    list: []
+    list: [],
+    errors: {}
 }
 
 export const user = (state = initialState, action) => {
@@ -8,7 +9,8 @@ export const user = (state = initialState, action) => {
         case ACTION_TYPES.CREATE:
             return {
                 ...state,
-                list:[...state.list, action.payload]
+                list:[...state.list, action.payload],
+                errors: action.message
             }
     }
 }
