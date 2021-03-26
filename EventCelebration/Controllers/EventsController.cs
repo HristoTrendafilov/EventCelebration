@@ -14,22 +14,24 @@
     {
         private string eventsJSONPath = @"..\EventCelebration\Data\Events.json";
 
+        private List<Event> events;
+        public EventsController()
+        {
+            events = JsonConvert.DeserializeObject<List<Event>>(System.IO.File.ReadAllText(eventsJSONPath));
+        }
 
         [HttpGet]
         public ActionResult<List<Event>> GetEvents()
         {
-            var events = JsonConvert.DeserializeObject<List<Event>>(System.IO.File.ReadAllText(eventsJSONPath));
             return events;
         }
 
         [HttpPost]
         public ActionResult CreateEvent(Event @event)
         {
-            var list = JsonConvert.DeserializeObject<List<Event>>(System.IO.File.ReadAllText(eventsJSONPath));
-            list.Add(@event);
+            events.Add(@event);
 
-            var convertedJson = JsonConvert.SerializeObject(list, Formatting.Indented);
-            System.IO.File.WriteAllText(eventsJSONPath, convertedJson);
+            SerializeEventsToJSON(events);
 
             return NoContent();
         }
@@ -37,15 +39,19 @@
         [HttpDelete("{id}")]
         public ActionResult DeleteEvent(string id)
         {
-            var list = JsonConvert.DeserializeObject<List<Event>>(System.IO.File.ReadAllText(eventsJSONPath));
             
-            var itemToRemove = list.Single(x => x.Id == id);
-            list.Remove(itemToRemove);
-            
-            var convertedJson = JsonConvert.SerializeObject(list, Formatting.Indented);
-            System.IO.File.WriteAllText(eventsJSONPath, convertedJson);
+            var itemToRemove = events.Single(x => x.Id == id);
+            events.Remove(itemToRemove);
+
+            SerializeEventsToJSON(events);
 
             return NoContent();
+        }
+
+        public void SerializeEventsToJSON(List<Event> events)
+        {
+            var convertedJson = JsonConvert.SerializeObject(events, Formatting.Indented);
+            System.IO.File.WriteAllText(eventsJSONPath, convertedJson);
         }
     }
 }
