@@ -24,22 +24,38 @@
         public UserController()
         {
             users = new List<User>();
-            //users = JsonConvert.DeserializeObject<List<User>>(System.IO.File.ReadAllText(usersJSONPath));
         }
 
         [HttpPost]
+        [Route("Register")]
         public ActionResult<User> Register(User user)
         {
+            var convertedUsers = JsonConvert.DeserializeObject<List<User>>(System.IO.File.ReadAllText(usersJSONPath));
+            if (convertedUsers != null)
+            {
+                foreach(var convertedUser in convertedUsers)
+                {
+                    users.Add(convertedUser);
+                }
+            }
+
             user.Password = ComputeSha256Hash(user.Password);
-           // user.JWTBearer = GenerateJwtToken(user);
+
+            // user.JWTBearer = GenerateJwtToken(user);
+
             users.Add(user);
+            var convertedJson = JsonConvert.SerializeObject(users, Formatting.Indented);
+            System.IO.File.WriteAllText(usersJSONPath, convertedJson);
+
 
             return this.Ok();
         }
-        //public ActionResult Login()
-        //{
-        //    return null;
-        //}
+
+        [HttpPost]
+        public ActionResult Login()
+        {
+            return null;
+        }
 
         //private string GenerateJwtToken(User user)
         //{
