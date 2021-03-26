@@ -11,7 +11,7 @@ const initialFieldValues = {
 
 const userRegisterForm = (props) => {
 
-     const validate = () => {
+      const validate = () => {
         let temp ={}
         temp.username = values.username?"":"Това поле е задължително."
         temp.password = values.password?"":"Това поле е задължително."

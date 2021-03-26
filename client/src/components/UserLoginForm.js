@@ -33,7 +33,7 @@ const userRegisterForm = (props) => {
         if(!validate()){
             window.alert("Моля, попълнете всички полета.")
         }else{
-            props.loginUser(values, () =>{props.history.push('/userLogin')})
+            props.loginUser(values, () =>{props.history.push('/')})
         }
     }
 
