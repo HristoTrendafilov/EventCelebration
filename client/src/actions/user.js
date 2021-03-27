@@ -29,8 +29,10 @@ export const login = (data, onSuccess) => dispatch => {
         .catch(function (error) {
             if(error.response.status === 400){
                 window.alert('Невалидни данни.')
+                localStorage.clear()
             }else if(error.response.status === 404){
-                window.alert('Не съществува потребител с такова потребителско име.')
+                window.alert('Грешна парола или потребителско име.')
+                localStorage.clear()
             }
         })
 }

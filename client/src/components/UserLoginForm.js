@@ -33,9 +33,9 @@ const userRegisterForm = (props) => {
         if(!validate()){
             window.alert("Моля, попълнете всички полета.")
         }else{
-            props.loginUser(values, () =>{props.history.push('/')})
+            localStorage.setItem('isLoggedIn', 'true')
+            props.loginUser(values, () =>{window.location.reload()})
         }
-        localStorage.setItem('isLoggedIn', 'true');
     }
 
     return(

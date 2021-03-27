@@ -8,8 +8,17 @@ import Route from 'react-router-dom/Route'
 import EventForm from './components/EventForm'
 import {Navbar, Button, Nav, Form, FormControl} from 'react-bootstrap';
 import UserLoginForm from "./components/UserLoginForm";
+import { Fragment } from 'react';
+
+const logout = () =>{
+  localStorage.clear()
+  window.location.reload()
+}
 
 function App() {
+
+  const isLoggedIn = localStorage.getItem('isLoggedIn')
+
   return (
     <Provider store={store}>
       <Navbar bg="dark" variant="dark">
@@ -17,9 +26,13 @@ function App() {
     <Nav className="container-fluid">
       <Nav.Link href="/">Начало</Nav.Link>
       <Nav.Link href="/EventForm">Добави събитие</Nav.Link>
-      <Nav.Link className="border-left pl-2 ml-auto" href="/userRegister">Регистрация</Nav.Link>
-      <Nav.Link href="/userLogin">Вход</Nav.Link>
-      <Nav.Link onclick={sessionStorage.clear()}>Изход</Nav.Link>
+      {isLoggedIn ?
+        <Button onClick={logout} className='btn'>Изход</Button> :
+        <Fragment>
+            <Nav.Link className="border-left pl-2 ml-auto" href="/userRegister">Регистрация</Nav.Link>
+            <Nav.Link href="/userLogin">Вход</Nav.Link>
+        </Fragment>
+      }
     </Nav>
   </Navbar>
       <Router>
