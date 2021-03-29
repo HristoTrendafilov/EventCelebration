@@ -61,11 +61,11 @@
         [HttpPost]
         [Route("Login")]
         public ActionResult Login(User user)
-        {
-            if (!ModelState.IsValid)
+        { if (!ModelState.IsValid)
             {
                 return this.BadRequest();
             }
+           
 
             user.Password = ComputeSha256Hash(user.Password);
 

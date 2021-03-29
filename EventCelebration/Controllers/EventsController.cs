@@ -31,23 +31,33 @@
         [HttpPost]
         public ActionResult CreateEvent(Event @event)
         {
+            if (!ModelState.IsValid)
+            {
+                return this.BadRequest();
+            }
+
             events.Add(@event);
 
             SerializeEventsToJSON(events);
 
-            return NoContent();
+            return this.Ok();
         }
 
         [HttpDelete("{id}")]
         public ActionResult DeleteEvent(string id)
         {
-            
+            if (string.IsNullOrWhiteSpace(id))
+            {
+                return this.BadRequest();
+            }
+
+
             var itemToRemove = events.Single(x => x.Id == id);
             events.Remove(itemToRemove);
 
             SerializeEventsToJSON(events);
 
-            return NoContent();
+            return this.Ok();
         }
 
         private void SerializeEventsToJSON(List<Event> events)
