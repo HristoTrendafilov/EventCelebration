@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Security.Cryptography;
+    using System.Linq;
     using System.Text;
 
     using Microsoft.AspNetCore.Mvc;
@@ -14,15 +15,16 @@
     [Route("api/[controller]")]
     public class UserController : ControllerBase
     {
-        private const string secretKey = "Smth";
+        // private const string secretKey = "Smth";
         private string usersJSONPath = @"..\EventCelebration\Data\Users.json";
 
         private List<User> users;
 
         public UserController()
         {
-            this.users = JsonConvert.DeserializeObject<List<User>>(System.IO.File.ReadAllText(usersJSONPath));
+            DeserializeJsonToUsers(usersJSONPath);
         }
+
 
         [HttpPost]
         [Route("Register")]
@@ -38,7 +40,7 @@
 
             // user.JWTBearer = GenerateJwtToken(user);
 
-            if (users != null)
+            if (users.Any())
             {
                 foreach (var currentUser in users)
                 {
@@ -47,10 +49,6 @@
                         return this.StatusCode(409);
                     }
                 }
-            }
-            else
-            {
-                users = new List<User>();
             }
 
             users.Add(user);
@@ -71,12 +69,12 @@
 
             user.Password = ComputeSha256Hash(user.Password);
 
-            if (users != null)
+            if (users.Any())
             {
                 for (int i = 0; i < users.Count; i++)
                 {
                     var currentUser = users[i];
-                    if (currentUser.Username == user.Username && currentUser.Password==user.Password)
+                    if (currentUser.Username == user.Username && currentUser.Password == user.Password)
                     {
                         currentUser.Token = Guid.NewGuid().ToString();
                         SerializeUsersToJSON(users);
@@ -90,10 +88,18 @@
             return this.NotFound();
         }
 
-        public void SerializeUsersToJSON(List<User> users)
+        private void SerializeUsersToJSON(List<User> users)
         {
             var convertedJson = JsonConvert.SerializeObject(users, Formatting.Indented);
             System.IO.File.WriteAllText(usersJSONPath, convertedJson);
+        }
+        private void DeserializeJsonToUsers(string usersJSONPath)
+        {
+            this.users = JsonConvert.DeserializeObject<List<User>>(System.IO.File.ReadAllText(usersJSONPath));
+            if (this.users is null)
+            {
+                this.users = new List<User>();
+            }
         }
 
         //private string GenerateJwtToken(User user)

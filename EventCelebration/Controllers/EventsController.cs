@@ -15,10 +15,12 @@
         private string eventsJSONPath = @"..\EventCelebration\Data\Events.json";
 
         private List<Event> events;
+
         public EventsController()
         {
-            events = JsonConvert.DeserializeObject<List<Event>>(System.IO.File.ReadAllText(eventsJSONPath));
+            DeserializeJsonToEvents(eventsJSONPath);
         }
+
 
         [HttpGet]
         public ActionResult<List<Event>> GetEvents()
@@ -48,10 +50,18 @@
             return NoContent();
         }
 
-        public void SerializeEventsToJSON(List<Event> events)
+        private void SerializeEventsToJSON(List<Event> events)
         {
             var convertedJson = JsonConvert.SerializeObject(events, Formatting.Indented);
             System.IO.File.WriteAllText(eventsJSONPath, convertedJson);
+        }
+        private void DeserializeJsonToEvents(string eventsJSONPath)
+        {
+            events = JsonConvert.DeserializeObject<List<Event>>(System.IO.File.ReadAllText(eventsJSONPath));
+            if (events == null)
+            {
+                events = new List<Event>();
+            }
         }
     }
 }
