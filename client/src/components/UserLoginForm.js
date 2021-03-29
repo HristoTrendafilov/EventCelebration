@@ -3,11 +3,9 @@ import {Form, Button} from 'react-bootstrap';
 import UseForm from './useForm';
 import * as actions from '../actions/user';
 import {connect} from 'react-redux';
-
-const initialFieldValues = {
-    username: '',
-    password: ''
-}
+import UserForm from "./UserForm";
+import {initialFieldValues} from './UserRegisterForm'
+import axios from 'axios';
 
 const userRegisterForm = (props) => {
 
@@ -34,38 +32,18 @@ const userRegisterForm = (props) => {
             window.alert("Моля, попълнете всички полета.")
         }else{
             localStorage.setItem('isLoggedIn', 'true')
-            props.loginUser(values, () =>{window.location.reload()})
+            localStorage.setItem('username', values.username);
+            props.loginUser(values, () => { props.history.push('/') })
+            props.history.goBack()
         }
     }
 
     return(
-        <Fragment>
-            <h1 className="text-center mt-4">Вход</h1>
-            <Form style={{maxWidth: '30vw'}} className="container mt-5" onSubmit={handleSubmit}>
-                <div>
-                    <Form.Group>
-                        <Form.Label>Име</Form.Label>
-                        <Form.Control
-                            name="username"
-                            value={values.username}
-                            onChange={handleInputChange}
-                        />
-                    </Form.Group>
-                    <Form.Group controlId="formBasicPassword">
-                        <Form.Label>Парола</Form.Label>
-                        <Form.Control
-                            type="password"
-                            name="password"
-                            value={values.password}
-                            onChange={handleInputChange}
-                        />
-                    </Form.Group>
-                    <Button variant="primary" type="submit">
-                        Изпрати
-                    </Button>
-                </div>
-            </Form>
-        </Fragment>
+        <UserForm
+            pageMessage = 'Вход'
+            values={values}
+            handleInputChange={handleInputChange}
+            handleSubmit={handleSubmit}  />
     )
 }
 

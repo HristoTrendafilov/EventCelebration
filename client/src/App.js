@@ -15,6 +15,8 @@ const logout = () =>{
   window.location.reload()
 }
 
+const username = localStorage.getItem('username');
+
 function App() {
 
   const isLoggedIn = localStorage.getItem('isLoggedIn')
@@ -24,10 +26,17 @@ function App() {
       <Navbar bg="dark" variant="dark">
     <Navbar.Brand href="/">Smart Software Systems</Navbar.Brand>
     <Nav className="container-fluid">
-      <Nav.Link href="/">Начало</Nav.Link>
-      <Nav.Link href="/EventForm">Добави събитие</Nav.Link>
+      <div className='row ml-3'>
+        <Nav.Link href="/">Начало</Nav.Link>
+        <Nav.Link href="/EventForm">Добави събитие</Nav.Link>
+      </div>
       {isLoggedIn ?
-        <Button onClick={logout} className='btn'>Изход</Button> :
+          <Fragment>
+            <div className='row mr-2'>
+              <p className='mr-3 text-white h4'>{username}</p>
+              <Button onClick={logout} className='btn'>Изход</Button>
+            </div>
+          </Fragment> :
         <Fragment>
             <Nav.Link className="border-left pl-2 ml-auto" href="/userRegister">Регистрация</Nav.Link>
             <Nav.Link href="/userLogin">Вход</Nav.Link>
