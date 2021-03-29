@@ -7,7 +7,9 @@
     using Newtonsoft.Json;
 
     using Models;
+    
 
+    //Just a comment
     [ApiController]
     [Route("api/[controller]")]
     public class EventsController : ControllerBase
