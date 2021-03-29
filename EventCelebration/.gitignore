@@ -7,6 +7,9 @@
 # Only exists if Bazel was run
 /bazel-out
 
+#Project data json ignore
+Data
+
 # dependencies
 /node_modules
 
