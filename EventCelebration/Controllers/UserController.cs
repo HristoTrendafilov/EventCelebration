@@ -64,27 +64,36 @@
         [Route("Login")]
         public ActionResult Login(User user)
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return this.BadRequest();
-            }
-
-            user.Password = ComputeSha256Hash(user.Password);
-
-            if (users != null)
-            {
-                for (int i = 0; i < users.Count; i++)
+                if (!ModelState.IsValid)
                 {
-                    var currentUser = users[i];
-                    if (currentUser.Username == user.Username && currentUser.Password==user.Password)
+                    return this.BadRequest();
+                }
+
+                user.Password = ComputeSha256Hash(user.Password);
+
+                if (users != null)
+                {
+                    for (int i = 0; i < users.Count; i++)
                     {
-                        currentUser.Token = Guid.NewGuid().ToString();
-                        SerializeUsersToJSON(users);
-                        return this.Ok();
+                        var currentUser = users[i];
+                        if (currentUser.Username == user.Username && currentUser.Password == user.Password)
+                        {
+                            currentUser.Token = Guid.NewGuid().ToString();
+                            SerializeUsersToJSON(users);
+                            return this.Ok();
+                        }
+
                     }
 
                 }
 
+                return this.NotFound();
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
 
             return this.NotFound();
