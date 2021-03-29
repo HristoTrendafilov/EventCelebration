@@ -5,7 +5,6 @@ import * as actions from '../actions/user';
 import {connect} from 'react-redux';
 import UserForm from "./UserForm";
 import {initialFieldValues} from './UserRegisterForm'
-import axios from 'axios';
 
 const userRegisterForm = (props) => {
 
@@ -29,12 +28,11 @@ const userRegisterForm = (props) => {
     const handleSubmit = e => {
         e.preventDefault()
         if(!validate()){
-            window.alert("Моля, попълнете всички полета.")
+            window.alert("Моля, попълнете всички полета.");
         }else{
+            console.log("Managed to send");
             localStorage.setItem('isLoggedIn', 'true')
-            localStorage.setItem('username', values.username);
-            props.loginUser(values, () => { props.history.push('/') })
-            props.history.goBack()
+            props.loginUser(values, () => { props.history.push('/') });
         }
     }
 

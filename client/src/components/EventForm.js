@@ -37,9 +37,8 @@ const EventForm = (props) => {
         if(!validate()){
             window.alert("Моля, попълнете всички полета.")
         }else{
-            props.createEvent(values, () =>{window.alert('Успешно добавено събитие.')})
-            props.history.push('/')
-            window.location.reload()
+            props.sendEvent(values, () =>{props.history.push('/')})
+
         }
     }
 
@@ -98,7 +97,7 @@ const mapStateToProps = state => ({
 })
 
 const mapActionToProps = {
-    createEvent: actions.create,
+    sendEvent: actions.create,
     updateEvent: actions.update
 }
 
